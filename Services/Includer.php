@@ -1,4 +1,7 @@
 <?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     header('Content-Type: text/html; charset=utf8');
     define("LOCAL_HOST", "localhost/SAIE");
     define("WEB_HOST", "");
@@ -14,7 +17,6 @@
      */
     include_once $DIRECTION_HOST.'/Services/DomainEnumeration.php';
     include_once $DIRECTION_HOST.'/Services/ProcessEnum.php';
-    include_once $DIRECTION_HOST.'/Services/ProjectFilter.php';
     include_once $DIRECTION_HOST.'/Services/FilterEnum.php';
     /**
      * Public Interfaces
@@ -22,6 +24,8 @@
     include_once $DIRECTION_HOST.'/Controller/I_UserController.php';
     include_once $DIRECTION_HOST.'/Controller/I_ProjectController.php';
     include_once $DIRECTION_HOST.'/Controller/I_CategoriesController.php';
+    include_once $DIRECTION_HOST.'/Controller/I_QuestionController.php';
+    include_once $DIRECTION_HOST.'/Controller/I_AnswerController.php';
     /**
      * Include Model Package
      */
@@ -33,6 +37,8 @@
     include_once $DIRECTION_HOST.'/Model/UserDao.php';
     include_once $DIRECTION_HOST.'/Model/ProjectDao.php';
     include_once $DIRECTION_HOST.'/Model/CategoryDao.php';
+    include_once $DIRECTION_HOST.'/Model/QuestionDao.php';
+    include_once $DIRECTION_HOST.'/Model/AnswerDao.php';
     /**
      * Include Controller package
      */
@@ -45,6 +51,8 @@
     include_once $DIRECTION_HOST.'/Controller/User.php';
     include_once $DIRECTION_HOST.'/Controller/Project.php';
     include_once $DIRECTION_HOST.'/Controller/Category.php';
+    include_once $DIRECTION_HOST.'/Controller/Question.php';
+    include_once $DIRECTION_HOST.'/Controller/Answer.php';
     /**
      * Include Translators package
      */
@@ -53,6 +61,8 @@
     include_once $DIRECTION_HOST.'/Translators/UserTranslator.php';
     include_once $DIRECTION_HOST.'/Translators/ProjectTranslator.php';
     include_once $DIRECTION_HOST.'/Translators/CategoriesTranslator.php';
+    include_once $DIRECTION_HOST.'/Translators/QuestionTranslator.php';
+    include_once $DIRECTION_HOST.'/Translators/AnswerTranslator.php';
 
 
 ?>

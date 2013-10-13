@@ -15,6 +15,7 @@ class CategoriesTranslator extends DataReceiver implements I_CategoriesControlle
         parent::DataReceiver(DomainEnumeration::CATEGORY,$controller);
         if(!isset($controller)){
             $this->translateValues();
+            $this->controller->updateObjectValues($this->values);
         }   
     }
 

@@ -6,14 +6,6 @@
         Purpose of the stylesheet follows.
 */
 
-/* 
-    Document   : general_css
-    Created on : 20/09/2013, 10:48:42 AM
-    Author     : Joe
-    Description:
-        Purpose of the stylesheet follows.
-*/
-
 body{
     /*background-color: rgb(226,245,167);*//*verde*/
     background-color: rgb(46,144,189);
@@ -136,9 +128,29 @@ body{
 #content{
     background-color:white;
     margin-left: 230px;
-    margin-bottom: -20px;
+    /*margin-bottom: -20px;*/
     padding-left: 20px;
     padding-top: 5px;
+}
+#content #project{
+    background-color: rgb(194,220,167);
+    margin: -10px -10px  10px;
+    height: 3em;
+    border-bottom-style: solid;
+    border-bottom-color: blue;
+    border-width: 2px;
+    padding: 5px;
+}
+#content #project:hover{
+    background-color: rgb(215,240,247); /*azul*/
+    cursor: pointer;
+}
+.hoverClass:hover{
+    background-color: rgb(215,240,247); /*azul*/
+    cursor: pointer;
+}
+#content #accordion-content{
+    cursor: pointer;    
 }
 #saveProject {
     font-size: 2em;
@@ -148,7 +160,12 @@ body{
 }#saveProject li{   
     margin-top: 1em;
 }
-#saveProject input,select{   
+#saveProject #qntyQuestions{   
+    line-height:  5em;
+    width: 2em; 
+    font: 1em "Trebuchet MS", sans-serif;
+}
+#saveProject input[type=text],input[type=button],select{   
     line-height:  5em;
     width: 20em; 
     font: 1em "Trebuchet MS", sans-serif;

@@ -14,7 +14,7 @@ class DomainEnumeration {
     const USER = 0;
     const PROJECT = 1;
     const QUESTION = 2;
-    CONST ANSWERS = 3;
+    CONST ANSWER = 3;
     CONST FINAL_ANSWERS = 4;
     CONST CATEGORY = 5;
     
@@ -30,7 +30,7 @@ class DomainEnumeration {
             case 2:
                 return "QUESTION";
             case 3:
-                return "ANSWERS";
+                return "ANSWER";
             case 4:
                 return "FINAL_ANSWERS";
             case 5:
@@ -49,7 +49,7 @@ class DomainEnumeration {
                 return self::PROJECT;
             CASE "QUESTION":
                 return self::QUESTION;
-            CASE "ANSWERS":
+            CASE "ANSWER":
                 return self::ANSWERS;
             CASE "FINAL_ANSWERS":
                 return self::FINAL_ANSWERS;

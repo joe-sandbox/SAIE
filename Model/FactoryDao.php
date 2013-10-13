@@ -16,7 +16,7 @@ class FactoryDao {
      */
     public static function buildObject($name, $dataBase = NULL){
         try{
-            $name .= "Dao";
+            $name = ucfirst(strtolower($name))."Dao";
             if(isset($dataBase)){
                 return new $name($dataBase);
             }else{

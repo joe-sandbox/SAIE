@@ -7,14 +7,6 @@
 header('Content-Type: text/html; charset=utf-8');
     chdir("..");
     include_once '../Services/Includer.php';
-    $op = (array_key_exists("filter",$_GET))?$_GET["filter"] : ProjectFilter::NONE;
-    switch($op){
-        case "category":
-            $filter = ProjectFilter::CATEROGY;
-            break;
-        default:
-            $filter = ProjectFilter::NONE;
-    }
     $catTrans = TranslatorBuilder::buildTranslator("Categories");
     $result = $catTrans->getCategories(FilterEnum::BOTH);
     $bigArr = array();

@@ -4,48 +4,39 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://localhost/" />
-<title>saveUser</title>
+<title>delProject</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">saveUser</td></tr>
+<tr><td rowspan="1" colspan="3">delProject</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/SAIE/VIEW/register.html</td>
+	<td>/SAIE/VIEW/mainMenu.html</td>
 	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name=name</td>
-	<td>Josef</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name=mail</td>
-	<td>josef@micorreo.com</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name=password</td>
-	<td>hola123</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name=conf-password</td>
-	<td>hola123</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=descriptionText</td>
-	<td>Esta es la descripción del usuario de Josef</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>name=submit</td>
+	<td>id=deleteProjectbtn</td>
 	<td></td>
 </tr>
+<tr>
+	<td>click</td>
+	<td>id=saveBtn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=response</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=response</td>
+	<td>Éxito al eliminar el proyecto</td>
+</tr>
+
 </tbody></table>
 </body>
 </html>

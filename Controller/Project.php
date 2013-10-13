@@ -12,8 +12,27 @@ class Project implements JsonSerializable,I_DomainObject{
     private $phase_project;
     private $total_answers;
     private $date_update;
+    private $categories;
+    private $user_id;
     
-    /**
+    public function getUser_id() {
+        return $this->user_id;
+    }
+
+    public function setUser_id($user_id) {
+        $this->user_id = $user_id;
+    }
+
+        
+    public function getCategories() {
+        return $this->categories;
+    }
+
+    public function setCategories($categories) {
+        $this->categories = $categories;
+    }
+
+        /**
      * Gets the id of the object.
      * @return <tt>int</tt> id of the project.
      */
@@ -114,12 +133,13 @@ class Project implements JsonSerializable,I_DomainObject{
         $this->phase_project = isset($values["phase_project"])? $values["phase_project"]: "";
         $this->total_answers = isset($values["total_answers"])? $values["total_answers"]: "";
         $this->date_update = isset($values["date_update"])? $values["date_update"]: "";
-        
+        $this->categories = isset($values["categories"])? $values["categories"]: "";
+        $this->user_id = (array_key_exists("user_id", $values))?$values["user_id"]: "0";
     }
     function __construct($id = NULL, $name = NULL, 
                         $description = NULL, $date_creation = NULL, 
                         $phase_project = NULL, $total_answers = NULL, 
-                        $date_update = NULL) {
+                        $date_update = NULL, $categories = NULL, $user_id = NULL) {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
@@ -127,6 +147,8 @@ class Project implements JsonSerializable,I_DomainObject{
         $this->phase_project = $phase_project;
         $this->total_answers = $total_answers;
         $this->date_update = $date_update;
+        $this->categories = $categories;
+        $this->user_id = $user_id;
     }
 
     public function jsonSerialize() {        

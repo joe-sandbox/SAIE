@@ -15,6 +15,8 @@ class FilterEnum {
         CONST ID = 1;
         CONST NAME = 2;
         CONST BOTH = 3;
+        CONST CATEROGY = 4;
+        CONST USER = 5;
 }
 
 ?>

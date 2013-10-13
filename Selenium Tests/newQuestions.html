@@ -4,48 +4,54 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://localhost/" />
-<title>saveUser</title>
+<title>newQuestions</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">saveUser</td></tr>
+<tr><td rowspan="1" colspan="3">newQuestions</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/SAIE/VIEW/register.html</td>
+	<td>/SAIE/VIEW/mainMenu.html</td>
 	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name=name</td>
-	<td>Josef</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name=mail</td>
-	<td>josef@micorreo.com</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name=password</td>
-	<td>hola123</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name=conf-password</td>
-	<td>hola123</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=descriptionText</td>
-	<td>Esta es la descripción del usuario de Josef</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>name=submit</td>
+	<td>id=viewProjectbtn</td>
 	<td></td>
 </tr>
+<tr>
+	<td>select</td>
+	<td>id=select-project-names</td>
+	<td>label=Impresora braille</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=questions[]</td>
+	<td>¿Qués es una impresora?</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@name='questions[]'])[2]</td>
+	<td>¿Qué componentes se necesitan?</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@name='questions[]'])[3]</td>
+	<td>¿Qué necesito hacer?</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@name='questions[]'])[4]</td>
+	<td>¿Cuales marcas existen?</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+
 </tbody></table>
 </body>
 </html>

@@ -1,42 +1,86 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
-	<script src="JS/jquery-1.9.1.js"></script>
-	<script src="JS/jquery-ui-1.10.2.custom.js"></script>
-        <script type="text/javascript">
+        <meta charset="utf-8" />
+        <link href="css/start_theme/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+        <link href="css/general_centered.css" rel="stylesheet">
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom.js"></script>
+	<script src="js/Login.js"></script>
+	<script src="js/AjaxClass.js"></script>
+	<script src="js/Url.js"></script>
+	<script src="js/Loader.js"></script>
+	<script src="js/LocEnum.js"></script>
+        <script>
             $(document).ready(function(){
-                $('input:button').click(function(){                   
-                     $.ajax(
-                        {
-                            url: 'VIEW/saveUser.php',
-                            method: 'post',
-                            data: $('form:first').serialize(),
-                            dataType: 'html',
-                            success: function(response){
-                                $('#form').hide();
-                                $('#response').html(response);
-                            }
-                        });
-                    });            
+                $("#success").hide();
+                $( "#accordion" ).accordion().position({
+                    of: $( "#logo" ),
+                    my: "center top",
+                    at: "center bottom",
+                    collision: "none none"
+                });                
+                $("#logo").position({
+                    of: $( document ),
+                    my: "center top",
+                    at: "center top",
+                    collision: "none none"
+                });
+                $("input:button").click(function(){
+                        Login.checkUser("loginForm","reponse-msg");
+                });
             });
-           
         </script>
+        <style>
+            body{                
+                margin-left: 50em;
+                margin-right: 50em;
+                /*margin-top: 20em;*/
+            }
+            #logo{
+                width: 120px;
+                height: 120px; 
+                padding-top: 3em;
+                padding-bottom: 3em;
+            }
+            ul{
+                list-style-type: none;
+            }
+        </style>
     </head>
     <body>
-        <div id="form">
-            <form>
-                <input type="text" name="name1" value="Hola"/>
-                <input type="text" name="name2" value="Hola2"/>
-                <input type="text" name="name3" value="Hola3"/>
-                <input type="hidden" name="DOMAIN_OBJECT" value="user"/>
-                <input type="hidden" name="PROCESS_OPTION" value="select"/>
-                <input type="button" id="save" value="Guardar"/>
-            </form>
-        </div>
-        <div>
-            <p id="response"></p>
+        <div id="content">
+            <div id="logo-content">
+                <img id="logo" src="images/logo.jpg">
+            </div>
+            <div id="accordion">
+                <h3 id="accordionHeader">Bienvenido!</h3>
+                <div>
+                    <div id="reponse-msg">
+                    </div>
+                    <form id="loginForm" >
+                        <ul>
+                            <li>
+                                <input type="text" name="mail" placeholder="Mail..."/>                            
+                            </li>
+                            <li>
+                                <input type="password" name="password" placeholder="Password..."/>                            
+                            </li>
+                            <li>
+                                <input id="submitBttn" type="button" value="Entrar" name="submit"/>                           
+                            </li>   
+                            <li>
+                                <a href="/VIEW/register.html">Nuevo usuario</a>
+                            </li>                         
+                        </ul>
+                    </form>
+                </div>
+            </div>
         </div>
     </body>
 </html>
