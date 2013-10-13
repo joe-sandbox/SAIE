@@ -1,0 +1,90 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8" />
+        <link href="../css/start_theme/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+        <link href="../css/general_centered.css" rel="stylesheet">
+	<script src="../js/jquery-1.9.1.js"></script>
+	<script src="../js/jquery-ui-1.10.3.custom.js"></script>
+	<script src="../js/setterFunctions.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#success").hide();
+                $( "#accordion" ).accordion();                
+                $("#logo").position({
+                    of: $( document ),
+                    my: "center top",
+                    at: "center top",
+                    collision: "none none"
+                });
+                $("#accordion").position({
+                    of: $( "#logo" ),
+                    my: "center top",
+                    at: "center bottom",
+                    collision: "none none"
+                });
+                $("input:button").click(function(){
+                    saveForm("user","regForm","success")
+                });
+            });
+        </script>
+        <style>
+            body{                
+                margin-left: 50em;
+                margin-right: 50em;
+                /*margin-top: 20em;*/
+            }
+            #logo{
+                width: 120px;
+                height: 120px; 
+                padding-top: 3em;
+                padding-bottom: 3em;
+            }
+            ul{
+                list-style-type: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <div id="logo-content">
+                <img id="logo" src="../images/logo.jpg">
+            </div>
+            <div id="accordion">
+                <h3 id="accordionHeader">Registrar Usuario</h3>
+                <div>
+                    <form id="regForm" accept-charset="utf-8">
+                        <ul>
+                            <li>
+                                <input type="text" name="name" placeholder="Nombre..." />                            
+                            </li>
+                            <li>
+                                <input type="text" name="mail" placeholder="Mail..."/>                            
+                            </li>
+                            <li>
+                                <input type="password" name="password" placeholder="Password..."/>                            
+                            </li>
+                            <li>
+                                <input type="password" name="conf-password" placeholder="Confirmar password..."/>                            
+                            </li>
+                            <li>
+                                <textarea id="descriptionText"name="description" placeholder="Descripción del usuario..." rows="4" cols="50"></textarea>       
+                            </li>  
+                            <li>
+                                <input id="submitBttn" type="button" value="Registrar" name="submit"/>                           
+                            </li>                          
+                        </ul>
+                    </form>
+                    <div id="success">
+                        <p>Success!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

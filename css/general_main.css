@@ -1,0 +1,170 @@
+/* 
+    Document   : general_main
+    Created on : 22/09/2013, 10:39:59 AM
+    Author     : Joe
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+    Document   : general_css
+    Created on : 20/09/2013, 10:48:42 AM
+    Author     : Joe
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body{
+    /*background-color: rgb(226,245,167);*//*verde*/
+    background-color: rgb(46,144,189);
+    font: 62.5% "Trebuchet MS", sans-serif;
+}
+#head-content{    
+     /*background-color: rgb(255,251,179);amarillo*/
+    background-color: rgb(215,240,247); /*azul*/
+    margin-top: -10px;
+    margin-left: -8px;
+    margin-bottom: -10px;
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-top: 10px;
+}
+#head-content ul{
+    list-style-type: none;
+}
+#head-content #head-list li{
+    float: left;
+}
+#head-content label{
+    font-size:  2em ;
+}
+#head-content #logo-content img{
+    width: 50%;
+    height: 50%;
+    margin-left: -10%;
+}
+#nav-path{
+    clear: both;/*clears the floating of previous elements*/
+}
+#nav-path label{    
+    font-size:  2em ;
+}
+
+#top-menu{
+    width: 100.5%;
+}
+#top-menu ul {
+    list-style-type: none;
+    background-image: url(../css/start_theme/images/ui-bg_gloss-wave_75_2191c0_500x100.png);
+    height: 30px;
+    width: 100%;
+    margin-left:  -50px;
+    border-style:solid;
+    border-width: 2px;
+    border-color: rgb(60,159,200);
+}
+#top-menu ul a {
+    background-image: url(../images/navi_bg_divider.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-right: 32px;
+    padding-left: 33%;
+    display: block;
+    line-height: 30px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #371C1C;
+}
+
+#top-menu li {
+    float: left;
+    width: 33.3%;
+}
+#top-menu ul li:hover {
+    background-image: url(../css/start_theme/images/ui-bg_gloss-wave_50_6eac2c_500x100.png);
+}
+
+
+#middle-section{
+    margin-top: -10px;
+}
+#left-menu{
+    margin-top: 0px;
+    margin-left: -10px;
+    float: left;
+    width: 15%;
+    height: 100%;
+    background-color: rgb(46,144,189);
+    /*background-color: rgb(236,233,119); /*amarillo*/
+    position: fixed;
+    color: white;
+}
+#left-menu ul{
+    list-style-type: none;
+    height: 100%;
+    overflow: auto;
+}
+#left-menu a{
+    color: white;
+    text-decoration: none;
+}
+#left-menu li{
+    line-height: 30px;
+    font-size: 1.5em;
+    color: white;
+}
+#left-menu  #menu-pane li:hover, #settings li:hover{
+    background-color: rgb(146,193,96);
+    margin-left: -37px;
+    padding-left: 37px;
+    line-height: 30px;
+}
+#left-menu #profile-info{
+}
+#left-menu #profile-info img{
+    width: 25%;
+    height: 25%;
+}
+#left-menu #left-menu-bg{
+    /*background: color position size repeat origin clip attachment image;*/
+    background-color: rgb(46,144,189);
+    background-repeat:y-repeat;
+    background-attachment:fixed;
+    background-position:center; 
+}
+#content{
+    background-color:white;
+    margin-left: 230px;
+    margin-bottom: -20px;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+#saveProject {
+    font-size: 2em;
+}
+#saveProject ul{       
+    list-style-type: none;   
+}#saveProject li{   
+    margin-top: 1em;
+}
+#saveProject input,select{   
+    line-height:  5em;
+    width: 20em; 
+    font: 1em "Trebuchet MS", sans-serif;
+}
+#saveProject select{
+    line-height:  5em;
+    width: 4em; 
+    font: 1em "Trebuchet MS", sans-serif;
+}
+#clearFloat{
+    clear: both;
+}
+#footer{    
+    background-color:white;
+    margin-left: 230px;
+}
+/** 
+*Dinamic content css.
+*/

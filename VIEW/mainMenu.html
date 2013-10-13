@@ -1,0 +1,100 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <link href="../css/start_theme/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+        <link href="../css/general_main.css" rel="stylesheet">
+	<script src="../js/jquery-1.9.1.js"></script>
+	<script src="../js/jquery-ui-1.10.3.custom.js"></script>
+	<script src="../js/setterFunctions.js"></script>
+	<script src="../js/getterFunctions.js"></script>
+	<script src="../js/serviceLibrary.js"></script>
+	<script src="../js/htmlBuilder.js"></script>
+        <script>
+            $(document).ready(function(){
+                displayProjectsCategoriesAccordion("category");
+                $("#homebtn").click(function(){
+                    $("#content").empty().append("<div id=\"projectsAccordion\"></div>");
+                    displayProjectsCategoriesAccordion("category");
+                });
+                $("#avisosbtn").click(function(){
+                    $("#content").empty();
+                });                    
+                /*$("#ayudabtn").click(function(){
+                    $("#content").empty();
+                });*/
+            });            
+            
+        </script>
+    </head>
+    <body>
+        <div id="head-content">
+            <ul id="head-list">
+                <li>
+                    <div id="logo-content">
+                        <img id="logo" src="../images/logo.jpg">
+                    </div>
+                </li>
+                <li>
+                    <div id="page-title">
+                        <label id="title-label">Sistema para la Asistencia de Investigación Exploratoria</label>
+                    </div>
+                </li>
+            </ul>
+            <div id="nav-path">
+                <label>Home > Hola</label>
+            </div>
+        </div>
+        <div id="top-menu">
+            <ul>
+                <li><a href="#" id="homebtn" onclick="loadContent('homebtn')">Home</a></li>
+                <li><a href="#" id="msgbtn" onclick="loadContent('msgbtn')">Avisos</a></li>
+                <li><a href="#" id="helpbtn" onclick="loadContent('helpbtn')">Ayuda</a></li>
+            </ul>
+        </div>
+        <div id="middle-section">
+            <div id="left-menu">                
+                <div id="profile-info">
+                    <ul>
+                        <li>
+                            <img id="logo" src="../images/default_profile.png">
+                        </li>
+                        <li>
+                            <label>Hola Jorge!</label>
+                        </li>
+                    </ul>
+                </div>
+                <div id="menu-pane">
+                    <ul>
+                        <li><a href="#" id="newProjectbtn" onclick="loadContent('newProjectbtn')">Nuevo Proyecto</a></li>
+                        <li><a href="#" id="modProjectobtn" onclick="loadContent('modProjectobtn')">Editar Proyecto</a></li>
+                        <li><a href="#" id="deleteProjectobtn" onclick="loadContent('deleteProjectobtn')">Borrar Proyecto</a></li>
+                        <li><a href="#" id="viewProjectobtn" onclick="loadContent('viewProjectobtn')">Ver Proyecto</a></li>
+                    </ul>
+                </div>                
+                <div id="settings">
+                    <ul>
+                        <li><a href="#" id="profilebtn">Mi Perfil</a></li>
+                        <li><a href="#" id="logoutbtn">Salir</a></li>
+                    </ul>
+                </div>
+                <div id="left-menu-bg"></div>
+            </div>
+            <div id="content">     
+                <div id="projectsAccordion"></div>
+            </div>
+        </div>
+        <div id="clearFloat"></div>
+        <div id="footer">
+            <br>
+            <br>
+            <br>
+            <p>Website created by Josef Grenz Meza</p>
+        </div>
+    </body>
+</html>
