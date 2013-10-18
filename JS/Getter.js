@@ -15,6 +15,10 @@ var Getter ={
         var url = Url.viewQuestions;
         return AjaxClass.getterAjax({ filter: filterVal , project_id: project_id},url);
     },
+    getQuestionsWithAnswers: function(filterVal,project_id){
+        var url = Url.viewQuestionsWithAnswers;
+        return AjaxClass.getterAjax({ filter: filterVal , project_id: project_id},url);
+    },
     getAnswers: function(filterVal,question_id){
         var url = Url.viewAnswers;
         return AjaxClass.getterAjax({ filter: filterVal , question_id: question_id},url);
@@ -26,6 +30,9 @@ var Getter ={
     getIdOfUser: function(){
         var url = Url.fetchIdUser;
         return AjaxClass.getterAjax({},url);
+    },
+    getStatusProject: function(){
+        var url = Url.fetchStatusProject;
     }
 }
 

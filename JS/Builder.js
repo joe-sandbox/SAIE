@@ -91,9 +91,10 @@ var Builder = {
             $(appendTo).append(view);
         },
         /**
-         * Builds the view project section.
-         * @param {type} appendTo
-         * @param {type} projectId if set, select that project id.
+         * Builds the view project section. This is the main entry for the view 
+         * section.
+         * @param {string} appendTo
+         * @param {string} projectId if set, select that project id.
          * @returns {undefined}
          */
         buildViewProject: function(appendTo,projectId){
@@ -112,19 +113,17 @@ var Builder = {
             $(appendTo).append(view);
             if(projectId.length>0)$("#select-project-names").val(projectId);
         },
-        buildSetQuestionsForm:function(appendTo,project_id,formId){
+        buildViewQuestionsForm:function(appendTo,project_id){
                 appendTo = "#"+appendTo;
-                var response = Getter.getQuestions("byProjectId",project_id);
+                var response = Getter.getQuestionsWithAnswers("byProjectId",project_id);
                 var view = "";
-                if(response.length === 0){
-                    view += this.buildNewQuestionsForm(formId);
-                    $(appendTo).append(view);
-                }else{
+                if(response.length > 0){
                     view += "<label>Preguntas</label>";
                     var accordion = "<div id='accordion-questions'>";
                     for(var i=0; i<response.length ; i++){
                         accordion += "<h3>"+response[i].question+"</h3><div id='accordion-content2'>";
-                        var answers = Getter.getAnswers("allQuestionId",response[i].question_id);
+                        //var answers = Getter.getAnswers("allQuestionId",response[i].question_id);
+                        var answers = response[i].answers;
                         for(var x=0;x<answers.length;x++){
                             accordion += "<div id='answer-content'>";
                             accordion += "<label>"+answers[x].answer+"</label>";
@@ -136,21 +135,22 @@ var Builder = {
                     }
                     accordion += "</div>";
                     accordion = $(accordion).accordion({ heightStyle: "content" }).css("margin-right","20px");
-                    $(appendTo).empty().append(view).append(accordion);
+                    $(appendTo).empty().append(view).append(accordion).append("<input type='button' value='Pasar siguiente etapa'/>");
                 }
         },
-        buildNewQuestionsForm:function(formId){
+        buildNewQuestionsForm:function(appendTo,project_id,formId){
+                appendTo = "#"+appendTo;
                 var view = "<label>Ingrese sus preguntas</label><ul>";
                 for(var i=0;i<15;i++){
                     view += "<li><input type='text' name='questions[]' placeholder='Ingrese su pregunta'></input></li>"
                 }
                 view += "<li><input type='button' value='Guardar Preguntas' \n\
                         onclick='Saver.saveNewForm(\"Question\",\""+formId+"\",\"content\")''/></li></ul>";
-                return view;                
+                $(appendTo).append(view);               
         },                
         buildNewAnswersForm:function(appendTo,projectId,formId){
                 appendTo = "#"+appendTo;
-                var response = Getter.getQuestions("byProjectId",projectId);
+                var response = Getter.getQuestionsWithAnswers("byProjectId",projectId);
                 var view = "";
                 if(response.length === 0){
                     view += this.buildNewQuestionsForm(formId);
@@ -159,7 +159,8 @@ var Builder = {
                     view += "<label>Preguntas</label>";
                     var accordion = "<div id='accordion-questions'>";
                     for(var i=0; i<response.length ; i++){
-                        var answers = Getter.getAnswers("byQuestionId",response[i].question_id);
+                        //var answers = Getter.getAnswers("byQuestionId",response[i].question_id);
+                        var answers = response[i].answers;
                         accordion += "<h3>"+response[i].question+"</h3><div id='accordion-content-"+i+"'>";
                         accordion += "<form id='answers-"+i+"'>";
                         accordion += "<input type='hidden' name='question_id' value='"+response[i].question_id+"'/>";

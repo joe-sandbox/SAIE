@@ -33,6 +33,11 @@ interface I_ProjectController {
      * @param  <tt>name/int</tt> $id of the project.
      */
     public function getProjectsByCategory($cat);
+    /**
+     * Moves the project to the next phase.
+     * @param int $project_id
+     */
+    public function moveToNextPhase($project_id);
 }
 
 ?>

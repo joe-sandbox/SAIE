@@ -105,15 +105,15 @@ class AnswerDao extends A_Dao implements I_AnswerController{
                     FROM `answers` as a
                     STRAIGHT_JOIN users as u
                     ON u.user_id = a.user_id
-                    AND question_id  = ? 
-                    AND user_id = ?";
+                    AND a.question_id  = ? 
+                    AND u.user_id = ?";
         }else{
             $sql="SELECT a.answer_id,a.answer,a.question_id,a.calification,
                         a.date_creation,u.name
                     FROM `answers` as a
                     STRAIGHT_JOIN users as u
                     ON u.user_id = a.user_id
-                    AND question_id  = ? ";
+                    AND a.question_id  = ? ";
         }
         
         $stmnt = $this->database->prepareStatement($sql);

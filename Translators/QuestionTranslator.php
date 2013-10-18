@@ -69,6 +69,10 @@ class QuestionTranslator extends DataReceiver implements I_QuestionController {
             return "No se pudo guardar la respuesta";
         }
     }
+
+    public function getQuestionsWithQuestions($project_id) {
+        return $this->controller->getQuestionsWithQuestions($project_id);
+    }
 }
 
 ?>

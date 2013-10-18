@@ -67,6 +67,10 @@ class ProjectTranslator  extends DataReceiver implements I_ProjectController{
         return $this->controller->getProjectsByCategory($cat);
     }
 
+    public function moveToNextPhase($project_id) {
+        return $this->controller->moveToNextPhase($project_id);
+    }
+
 }
 
 ?>

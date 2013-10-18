@@ -116,6 +116,39 @@ class QuestionDao extends A_Dao implements I_QuestionController{
     public function updateRow($object){
         
     }
+
+    public function getQuestionsWithQuestions($project_id) {
+        
+        $sql="SELECT q.question_id,q.question,
+                    q.calification,q.date_creation,
+                    u.user_id 
+            FROM questions as q 
+            STRAIGHT_JOIN users as u
+            ON q.user_id = u.user_id
+            AND q.project_id = ?";
+        $stmnt = $this->database->prepareStatement($sql);       
+        if($stmnt === false) {
+            trigger_error('Wrong SQL: ' . $stmnt . ' Error: ' . $this->database->error, E_USER_ERROR);
+        }else{  
+            $stmnt->bind_param('i',$project_id); 
+            /* Execute statement */
+            $stmnt->execute();    
+            $values = $stmnt->get_result();
+            $arr = array();
+            while($row = $values->fetch_array(MYSQLI_ASSOC)){
+                $answerDao = new AnswerDao($this->database);
+                $row['answers'] = $answerDao->getAnswersByQuestionId($row['question_id']);
+                $arr[] = $row;
+            }
+            $error = $stmnt->error;
+            $stmnt->close();
+            if(strlen($error)=== 0){
+                return $arr;
+            }else{
+                return $error;
+            }
+        }
+    }
 }
 
 ?>

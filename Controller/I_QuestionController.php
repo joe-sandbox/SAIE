@@ -26,6 +26,11 @@ interface I_QuestionController {
      * @param <tt>int</tt> $project_id
      */
     public function getQuestionsByProjectId($project_id);
+    /**
+     * Returns the questions with their answers.
+     * @param int $project_id
+     */
+    public function getQuestionsWithQuestions($project_id);
 }
 
 ?>

@@ -17,8 +17,10 @@ var Url = new function(){
     this.viewAnswers = this.url+"/VIEW/View_Builder/viewAnswers.php",
     this.viewProject = this.url+"/VIEW/View_Builder/viewProjects.php",
     this.viewQuestions = this.url+"/VIEW/View_Builder/viewQuestions.php",
+    this.viewQuestionsWithAnswers = this.url+"/VIEW/View_Builder/viewQuestionsWithAnswers.php",
     this.fetchNameUser = this.url+"/Bay/getUserName.php",
     this.fetchIdUser = this.url+"/Bay/getUserId.php",
+    this.moveToNextPhase=  this.url+"/Bay/moveProjectToNextPhase.php";
             
 /**
  * Returns the URL of the system, in example: http://www.saie.com

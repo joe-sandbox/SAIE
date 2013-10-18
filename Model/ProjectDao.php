@@ -247,7 +247,11 @@ class ProjectDao extends A_Dao implements I_ProjectController{
                 break;
             case FilterEnum::BOTH:   
                 if($userid===0){
-                    $sql = "SELECT project_id,name FROM projects ORDER BY name ASC";
+                    $sql = "SELECT p.project_id,p.name, pp.name as status
+                            FROM projects as p
+                             STRAIGHT_JOIN phase_project as pp
+                             ON p.pp_id = pp.pp_id
+                             ORDER BY p.name ASC";
                 }else{
                     $sql = "SELECT project_id,name FROM projects WHERE user_id = $userid
                         ORDER BY name ASC";
@@ -317,6 +321,40 @@ class ProjectDao extends A_Dao implements I_ProjectController{
             }
             $stmnt->close();
             return $arr;
+        }
+    }
+
+    public function moveToNextPhase($project_id) {
+            $sql="SELECT * FROM projects WHERE project_id = ?";
+        $stmnt = $this->database->prepareStatement($sql);
+        if($stmnt === false) {
+            trigger_error('Wrong SQL: ' . $stmnt . ' Error: ' . $this->database->error, E_USER_ERROR);
+        }else{            
+            /* Execute statement */   
+                $stmnt->bind_param('i',$project_id); 
+                $stmnt->execute();  
+                $result = $stmnt->get_result();
+                while($project = $result->fetch_array(MYSQLI_ASSOC)){
+                    if($project["pp_id"]<7){
+                        var_dump($project);
+                        $pp_id = $project["pp_id"]+= 1;
+                        echo $pp_id." id de la fase...";
+                                
+                        $sql = "UPDATE projects 
+                                SET pp_id = ?
+                                WHERE project_id = ?";
+                        $stmnt = $this->database->prepareStatement($sql);
+                        $stmnt->bind_param('ii',$pp_id,$project_id); 
+                        $stmnt->execute();  
+                    }
+                }
+                $error = $stmnt->error;
+                $stmnt->close();
+                if(strlen($error)=== 0){
+                    return true;
+                }else{
+                    return $error;
+                }
         }
     }
 }

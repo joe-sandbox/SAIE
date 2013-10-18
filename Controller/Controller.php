@@ -125,6 +125,14 @@ class Controller implements I_UserController, I_ProjectController,
     public function getAnswersByQuestionId($question_id, $user_id = NULL) {
         return $this->activeDao->getAnswersByQuestionId($question_id, $user_id);
     }
+
+    public function getQuestionsWithQuestions($project_id) {
+        return $this->activeDao->getQuestionsWithQuestions($project_id);
+    }
+
+    public function moveToNextPhase($project_id) {
+        return $this->activeDao->moveToNextPhase($project_id);
+    }
 }
 
 ?>

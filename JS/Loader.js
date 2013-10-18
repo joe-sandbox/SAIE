@@ -70,8 +70,8 @@ var Loader = {
                         }*/
        },
        /**
-        * Used after clicking a project in the main menu page. Loads the specified
-        * project in the view projects sections.
+        * Used after selectin a project from list in the main menu page. 
+        * Loads the specified project in the view projects sections.
         * @param {int} idProject
         * @returns {undefined}
         */
@@ -96,12 +96,27 @@ var Loader = {
            console.log("Loader.loadViewForm: projectId="+projectId);
            var result = Getter.getProjects("byId",projectId);
            var projectUser = result[0].user_id;
+           var status = result[0].phase_name;
            var user = Getter.getIdOfUser();
            user = user.user;
            if(user === projectUser){
-               Builder.buildSetQuestionsForm(appendTo,projectId,formId)
+              switch(status){
+                  case StatusEnum.starting:
+                      Builder.buildNewQuestionsForm(appendTo,projectId,formId);
+                    break;
+                  case StatusEnum.answering:
+                        Builder.buildViewQuestionsForm(appendTo,projectId);
+                    break;
+                  case StatusEnum.integrating:
+                    break;
+                  case StatusEnum.grading:
+                    break;
+                  case StatusEnum.closed:
+                    break;
+                  default:
+               }
            }else{
-               Builder.buildNewAnswersForm(appendTo,projectId,formId)
+               Builder.buildNewAnswersForm(appendTo,projectId,formId);
            }
            
        }

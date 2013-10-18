@@ -16,6 +16,8 @@ foreach($questions as $row){
         $succes = $succes && $translator->saveRow();  
     }
 }
+$transproject = TranslatorBuilder::buildTranslator("Project");
+$transproject->moveToNextPhase($_POST["project_id"]);
 if($succes){
     $msg = "success";
 }else{
