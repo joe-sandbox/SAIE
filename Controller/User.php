@@ -83,11 +83,11 @@ class User implements JsonSerializable,I_DomainObject {
         return (object) get_object_vars($this);
     }
     public function overwriteAttributes($values){       
-        $this->id = (array_key_exists("id", $values))? $values['id']:"";
-        $this->name = (array_key_exists("name", $values))? $values['name']:"";
-        $this->mail = (array_key_exists("mail", $values))? $values['mail']:"";;
-        $this->description = (array_key_exists("description", $values))? $values['description']:"";;
-        $this->password = (array_key_exists("password", $values))? $values['password']:"";;
+        $this->id = $values['id'];
+        $this->name = $values['name'];
+        $this->mail = $values['mail'];
+        $this->description = $values['description'];
+        $this->password = $values['password'];
     }
     /**
      * Constructor

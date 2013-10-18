@@ -3,29 +3,28 @@
     header('Content-Type: text/html; charset=utf-8');
     chdir("..");
     include_once '../Services/Includer.php';
-    $op = (array_key_exists("filter",$_GET))?$_GET["filter"] : FilterEnum::NONE;
+    $op = (array_key_exists("filter",$_GET))?$_GET["filter"] : ProjectFilter::NONE;
     switch($op){
         case "category":
-            $filter = FilterEnum::CATEROGY;
+            $filter = ProjectFilter::CATEROGY;
             break;
         default:
-            $filter = FilterEnum::NONE;
+            $filter = ProjectFilter::NONE;
     }
     $catTrans = TranslatorBuilder::buildTranslator("Categories");
-    $projectTrans = TranslatorBuilder::buildTranslator("Project",$catTrans);
+    $translator = TranslatorBuilder::buildTranslator("Project");
+    $projects = $translator->getProjectsByCategory($filter);
     $result = $catTrans->getCategories(FilterEnum::BOTH);
     $bigArr = array();
     $x = 0;
-    //var_dump($result);
+    //creates the array of categories
     foreach ($result as $row){
-        $bigArr[$x]["category_id"] = $row["category_id"];
-        $bigArr[$x]["name"] = $row["name"];
-        $miniArr = $projectTrans->getProjectsByCategory($row["category_id"]);
-        //var_dump($miniArr);
-        $bigArr[$x]["projects"] = $miniArr;
+        $bigArr[$x][0] = $row["category_id"];
+        $bigArr[$x][1] = $row["name"];
+        $miniArr = $translator->getProjectsByCategory($row["category_id"]);
+        $bigArr[$x][2] = $miniArr;
         $x++;
     }
-    //var_dump($bigArr);
-    //var_dump($bigArr[3]);
     echo json_encode($bigArr);
+    //echo json_encode($projects);
 ?>

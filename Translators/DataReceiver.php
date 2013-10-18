@@ -11,7 +11,7 @@
  * @author Joe
  */
 abstract class  DataReceiver {
-    public $values = array();
+    protected $values = array();
     protected $DOMAIN_OBJECT;
     protected $PROCESS_OPTION;
     protected $controller;
@@ -21,10 +21,9 @@ abstract class  DataReceiver {
     public function DataReceiver($domainEnum,$control){
         $this->values = array_merge($_GET, $_POST);
         if(isset($control)){
-            $this->controller = new Controller($domainEnum, $this->values,
-                    $control);
+            $this->controller = $control;
         }else{
-            $this->controller = new Controller($domainEnum);
+            $this->controller = new Controller($domainEnum,  $this->values);
         }
         
     }

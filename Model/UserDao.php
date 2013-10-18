@@ -12,7 +12,7 @@
  */
 class UserDao extends A_Dao implements  I_UserController{
     
-    function __construct($database = NULL) {
+    function __construct($database) {
         $this->database = (isset($database))? $database : FactoryDB::buildObject();
     }
     public function insertList($values) {
@@ -34,6 +34,7 @@ class UserDao extends A_Dao implements  I_UserController{
                 $stmnt->execute();    
                 $values = $stmnt->get_result();
                 $row = $values->fetch_array(MYSQLI_NUM);
+                var_dump($row);
                 $stmnt->close();
             }     
         }
@@ -124,7 +125,7 @@ class UserDao extends A_Dao implements  I_UserController{
           trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
         }
         /* Bind parameters. TYpes: s = string, i = integer, d = double,  b = blob */
-        $stmt->bind_param('s',$name);
+        $stmt->bind_param('i',$name);
         /* Execute statement */
         $stmt->execute();      
         $stmt->bind_result($lastname, $email);
@@ -185,30 +186,6 @@ class UserDao extends A_Dao implements  I_UserController{
         }
         $stmt->close();
         return $result;
-    }
-
-    public function getUserByMail($mail) {
-        $sql='SELECT * FROM users  WHERE mail = ?';
-        /* Prepare statement */
-        $stmnt = $this->database->prepareStatement($sql);
-        if($stmnt === false) {
-          trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
-        }
-        /* Bind parameters. TYpes: s = string, i = integer, d = double,  b = blob */
-        $stmnt->bind_param('s',$mail);
-        /* Execute statement */
-        $stmnt->execute();  
-        $values = $stmnt->get_result();    
-        while($row = $values->fetch_array(MYSQLI_ASSOC)){
-                $arr[] = $row;
-        }
-        $error = $stmnt->error;
-        $stmnt->close();
-        if(strlen($error)=== 0){
-            return $arr;
-        }else{
-            return $error;
-        }       
     }
 
 }

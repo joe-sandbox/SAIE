@@ -11,28 +11,25 @@ and open the template in the editor.
         <link href="../css/general_centered.css" rel="stylesheet">
 	<script src="../js/jquery-1.9.1.js"></script>
 	<script src="../js/jquery-ui-1.10.3.custom.js"></script>
-	<script src="../js/LocEnum.js"></script>
-	<script src="../js/AjaxClass.js"></script>
-	<script src="../js/Saver.js"></script>
-	<script src="../js/Url.js"></script>
-	<script src="../js/Loader.js"></script>
+	<script src="../js/setterFunctions.js"></script>
         <script>
             $(document).ready(function(){
                 $("#success").hide();
-                $( "#accordion" ).accordion().position({
-                    of: $( "#logo" ),
-                    my: "center top",
-                    at: "center bottom",
-                    collision: "none none"
-                });                
+                $( "#accordion" ).accordion();                
                 $("#logo").position({
                     of: $( document ),
                     my: "center top",
                     at: "center top",
                     collision: "none none"
                 });
+                $("#accordion").position({
+                    of: $( "#logo" ),
+                    my: "center top",
+                    at: "center bottom",
+                    collision: "none none"
+                });
                 $("input:button").click(function(){
-                    Saver.saveNewForm("user","regForm","accordion")
+                    saveForm("user","regForm","success")
                 });
             });
         </script>
@@ -76,13 +73,16 @@ and open the template in the editor.
                                 <input type="password" name="conf-password" placeholder="Confirmar password..."/>                            
                             </li>
                             <li>
-                                <textarea id="descriptionText" name="description" placeholder="Descripción del usuario..." rows="4" cols="50"></textarea>       
+                                <textarea id="descriptionText"name="description" placeholder="Descripción del usuario..." rows="4" cols="50"></textarea>       
                             </li>  
                             <li>
                                 <input id="submitBttn" type="button" value="Registrar" name="submit"/>                           
                             </li>                          
                         </ul>
                     </form>
+                    <div id="success">
+                        <p>Success!</p>
+                    </div>
                 </div>
             </div>
         </div>

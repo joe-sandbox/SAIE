@@ -29,10 +29,6 @@ interface I_UserController {
      *      $op = 1 after that date.
      */
     public function getUsersByDate($date,$op);
-    /***
-     * returns the user with the corresponding name.
-     */
-    public function getUserByMail($mail);
 }
 
 ?>

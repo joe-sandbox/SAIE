@@ -11,19 +11,23 @@ and open the template in the editor.
         <link href="../css/general_main.css" rel="stylesheet">
 	<script src="../js/jquery-1.9.1.js"></script>
 	<script src="../js/jquery-ui-1.10.3.custom.js"></script>
-	<script src="../js/displays.js"></script>
-	<script src="../js/Saver.js"></script>
-	<script src="../js/Getter.js"></script>
-	<script src="../js/AjaxClass.js"></script>
-	<script src="../js/Url.js"></script>
-	<script src="../js/Loader.js"></script>
-	<script src="../js/Builder.js"></script>
-	<script src="../js/LocEnum.js"></script>
+	<script src="../js/setterFunctions.js"></script>
+	<script src="../js/getterFunctions.js"></script>
+	<script src="../js/serviceLibrary.js"></script>
+	<script src="../js/htmlBuilder.js"></script>
         <script>
             $(document).ready(function(){
-                var res = Getter.getNameOfUser();
-                $("#userName").html("Hola, "+res.user);
-                Loader.loadContent(LocEnum.home);
+                displayProjectsCategoriesAccordion("category");
+                $("#homebtn").click(function(){
+                    $("#content").empty().append("<div id=\"projectsAccordion\"></div>");
+                    displayProjectsCategoriesAccordion("category");
+                });
+                $("#avisosbtn").click(function(){
+                    $("#content").empty();
+                });                    
+                /*$("#ayudabtn").click(function(){
+                    $("#content").empty();
+                });*/
             });            
             
         </script>
@@ -48,9 +52,9 @@ and open the template in the editor.
         </div>
         <div id="top-menu">
             <ul>
-                <li><a href="#" id="homebtn" onclick="Loader.loadContent(LocEnum.home)">Home</a></li>
-                <li><a href="#" id="msgbtn" onclick="Loader.loadContent(LocEnum.message)">Avisos</a></li>
-                <li><a href="#" id="helpbtn" onclick="Loader.loadContent(LocEnum.help)">Ayuda</a></li>
+                <li><a href="#" id="homebtn" onclick="loadContent('homebtn')">Home</a></li>
+                <li><a href="#" id="msgbtn" onclick="loadContent('msgbtn')">Avisos</a></li>
+                <li><a href="#" id="helpbtn" onclick="loadContent('helpbtn')">Ayuda</a></li>
             </ul>
         </div>
         <div id="middle-section">
@@ -61,16 +65,16 @@ and open the template in the editor.
                             <img id="logo" src="../images/default_profile.png">
                         </li>
                         <li>
-                            <label id="userName"></label>
+                            <label>Hola Jorge!</label>
                         </li>
                     </ul>
                 </div>
                 <div id="menu-pane">
                     <ul>
-                        <li><a href="#" id="newProjectbtn" onclick="Loader.loadContent(LocEnum.newProjectForm)">Nuevo Proyecto</a></li>
-                        <li><a href="#" id="modProjectbtn" onclick="Loader.loadContent(LocEnum.modProjectForm)">Editar Proyecto</a></li>
-                        <li><a href="#" id="deleteProjectbtn" onclick="Loader.loadContent(LocEnum.deleteProjectForm)">Borrar Proyecto</a></li>
-                        <li><a href="#" id="viewProjectbtn" onclick="Loader.loadContent(LocEnum.viewProjectForm)">Ver Proyecto</a></li>
+                        <li><a href="#" id="newProjectbtn" onclick="loadContent('newProjectbtn')">Nuevo Proyecto</a></li>
+                        <li><a href="#" id="modProjectobtn" onclick="loadContent('modProjectobtn')">Editar Proyecto</a></li>
+                        <li><a href="#" id="deleteProjectobtn" onclick="loadContent('deleteProjectobtn')">Borrar Proyecto</a></li>
+                        <li><a href="#" id="viewProjectobtn" onclick="loadContent('viewProjectobtn')">Ver Proyecto</a></li>
                     </ul>
                 </div>                
                 <div id="settings">

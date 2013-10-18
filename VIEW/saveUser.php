@@ -8,7 +8,5 @@ header('Content-Type: text/html; charset=utf-8');
 
 include_once '../Services/Includer.php';
 $translator = TranslatorBuilder::buildTranslator("User");
-$msg = $translator->saveRow();
-header('Content-type:text/html');
-echo $msg;
+$translator->saveRow();
 ?>

@@ -16,7 +16,7 @@ body{
 #accordion {    
     box-shadow: 10px 10px 5px #888888;
 }
-#loginForm input[type=button],input[type=text],input[type=password],#descriptionText,table,#tableHeader{
+#regForm input[type=button],input[type=text],input[type=password],#descriptionText,table,#tableHeader{
     line-height:  3em;
     width: 20em;
     margin: 0.5em;  
@@ -25,3 +25,43 @@ body{
 .accordionHeader{
     font: 15pt "Trebuchet MS", sans-serif;    
 }
+#top-menu{
+    width: 100%;
+}
+#top-menu ul {
+    list-style-type: none;
+    background-image: url(../css/start_theme/images/ui-bg_gloss-wave_75_2191c0_500x100.png);
+    height: 40px;
+    width: 100%;
+    margin: 0;
+}
+#top-menu ul a {
+    background-image: url(../images/navi_bg_divider.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-right: 32px;
+    padding-left: 32px;
+    display: block;
+    line-height: 40px;
+    text-decoration: none;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 21px;
+    color: #371C1C;
+}
+#top-menu li {
+    float: left;
+}
+#top-menu ul a:hover {
+    color: #FFF;
+}
+/*#top-menu li a {
+   padding: 2px 7px 2px 7px;
+   color: #666;
+   background-color: #eeeeee;
+   border: 1px solid #ccc;
+   text-decoration: none;
+}
+#top-menu li a:hover{
+   background-color: #333333;
+   color: #ffffff;
+}*/
